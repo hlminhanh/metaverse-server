@@ -4,7 +4,7 @@ const wss = new WebSocket.Server({ port: PORT });
 
 const clients = new Map();
 
-console.log(`✅ WebSocket Server đang chạy tại ws://localhost:${PORT}`);
+console.log(`✅ WebSocket Server đang chạy tại cổng ${PORT}`);
 
 wss.on('connection', (ws) => {
   let username = '';
