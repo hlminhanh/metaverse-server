@@ -16,6 +16,13 @@ wss.on('connection', (ws) => {
       username = data.username;
       clients.set(username, ws);
       console.log(`✅ ${username} đã kết nối`);
+
+      // 🔁 Gửi phản hồi lại client sau khi join
+      ws.send(JSON.stringify({
+        type: 'joined',
+        username: username,
+        message: 'Bạn đã tham gia thành công!'
+      }));
     }
 
     if (data.type === 'move') {
