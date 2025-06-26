@@ -1,10 +1,10 @@
 const WebSocket = require('ws');
-const wss = new WebSocket.Server({ port: 3000 });
+const PORT = process.env.PORT || 3000;
+const wss = new WebSocket.Server({ port: PORT });
 
 const clients = new Map();
 
-// Thêm dòng log báo server đã khởi động
-console.log('✅ WebSocket Server đang chạy tại ws://localhost:3000');
+console.log(`✅ WebSocket Server đang chạy tại ws://localhost:${PORT}`);
 
 wss.on('connection', (ws) => {
   let username = '';
